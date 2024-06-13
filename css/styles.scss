@@ -1,0 +1,245 @@
+@font-face {
+  font-family: "Norse-Bold";
+  src: local("Norse-Bold"), url("../fonts/Norse-Bold.otf") format("opentype"),
+    url("../fonts/Norse-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+html {
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+  color: black;
+  background-color: rgba(241, 237, 237, 0.71);
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  line-height: 1.2;
+  font-size: clamp(1rem, 0.5rem + 1vw, 2rem);
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.container {
+  &--left {
+    background-image: url("../resources/handshake.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 40%;
+    flex-direction: column;
+  }
+
+  &--right {
+    width: 60%;
+    margin: 0 2rem 0 4rem;
+  }
+
+  &__title {
+    width: 100%;
+    min-height: 20%;
+    background: rgba(0, 0, 0, 0.57);
+    margin-top: 6rem;
+    font-family: Norse-Bold, sans-serif;
+
+    &.flex {
+      align-items: center;
+    }
+
+    & img {
+      height: auto;
+      width: 5rem;
+      margin: 0.5rem 0;
+    }
+
+    & h1 {
+      font-size: 4rem;
+      margin: 0.5rem 0;
+      color: white;
+    }
+  }
+
+  &__img-author {
+    font-size: 0.8rem;
+    margin-top: auto;
+
+    & p {
+      text-align: center;
+      margin: 1rem 0;
+      color: #b5792c;
+    }
+
+    & a {
+      color: #b5792c;
+    }
+  }
+
+  &__text {
+    font-weight: bold;
+    font-size: 1rem;
+    max-inline-size: 66ch;
+    margin-top: 3.5rem;
+
+    & :last-child {
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__form {
+    margin-top: 2.2rem;
+
+    & fieldset {
+      border: none;
+      padding: 0;
+      box-shadow: rgba(0, 0, 0, 0.3) 0 15px 20px -15px;
+      margin-bottom: 2.5rem;
+      & legend {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+    }
+  }
+  &__login {
+    margin: 2.3rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.form {
+  &__inputs {
+    margin-top: 1.2rem;
+    flex-wrap: wrap;
+  }
+
+  &__row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &__column {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
+    flex: 1;
+
+    & label {
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      margin-bottom: 0.3rem;
+    }
+
+    & input {
+      max-width: 40ch;
+      width: 70%;
+      margin-bottom: 1.5rem;
+      outline: #ffd9d9 2px solid;
+      border-radius: 5px;
+      border: none;
+      font-size: 1rem;
+      line-height: 1.5;
+
+      &:focus {
+        outline: #e0a531 2px solid;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      }
+
+      &:user-invalid {
+        outline: #8f1d1d 2px solid;
+      }
+
+      &:user-valid {
+        outline: #285d27 2px solid;
+      }
+
+      &:user-ivalid + .icon--warning {
+        display: inline;
+      }
+
+      &:user-valid + .icon--check {
+        display: inline;
+      }
+    }
+  }
+}
+
+.icon {
+  &--check,
+  &--warning {
+    left: 74%;
+    transform: translateY(55%);
+    position: absolute;
+    display: none;
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.validation-rules {
+  position: relative;
+  width: 70%;
+  font-size: 0.7rem;
+  top: -1rem;
+  padding-left: 0.5rem;
+}
+
+.btn {
+  transition: all 0.2s;
+  position: relative;
+  cursor: pointer;
+  &--submit {
+    font-size: 1.2rem;
+    padding: 0.5rem 0.6rem;
+    background-color: #d59c26;
+    border-radius: 10px;
+    border-color: transparent;
+    color: #4f270e;
+    &:focus,
+    :hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+      transform: translateY(3px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    &::after {
+      content: "";
+      display: inline-block;
+      height: 100%;
+      width: 100%;
+      border-radius: 100px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all 0.4s;
+      background-color: #d59c26;
+    }
+    &:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+  &--login {
+    border: none;
+    width: 4rem;
+    height: 4rem;
+    & a {
+      color: #4f270e;
+      font-weight: bold;
+    }
+  }
+}
