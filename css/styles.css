@@ -132,7 +132,7 @@ body {
 }
 .form__column input:focus {
   outline: #e0a531 2px solid;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 .form__column input:user-invalid {
   outline: #8f1d1d 2px solid;
